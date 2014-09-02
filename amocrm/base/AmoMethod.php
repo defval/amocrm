@@ -3,7 +3,7 @@
 /**
  * Your comment
  *
- * @author staygreengored <sggr90q@gmail.com>
+ * @author staygreengored <sggr90@gmail.com>
  * @since 1.0
  */
 class AmoMethod
