@@ -6,7 +6,7 @@
  * @since 1.0
  */
 
-require_once 'yii-amocrm/AmoCrm.php';
+require_once 'amocrm/AmoCrm.php';
 try {
     $result = new AmoCrm('login', 'hash', 'domain');
     $r = $result->leadsList(array('query' => 123));
