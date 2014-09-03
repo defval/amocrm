@@ -44,8 +44,13 @@ class AmoGetMethod extends AmoMethod {
         $this->url = 'https://'.$this->domain.'.amocrm.ru'.$this->getMethodName();
         $this->url .= '?type='.$this->type;
         foreach($params as $key=>$value) {
-            if($key !== 'domain' && $key !== 'type' && $key !== 'url' && isset($value))
+            if($key !== 'domain' && $key !== 'type' && $key !== 'url' && isset($value) && !is_array($value) )
                 $this->url .= '&'.$key.'='.$value;
+            elseif(is_array($value)) {
+                foreach($value as $param) {
+                    $this->url .= '&'.$key.'[]='.$param;
+                }
+            }
         }
     }
 
