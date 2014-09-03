@@ -45,7 +45,26 @@ class AmoGetMethod extends AmoMethod {
         $this->url .= '?type='.$this->type;
         foreach($params as $key=>$value) {
             if($key !== 'domain' && $key !== 'type' && $key !== 'url' && isset($value))
-                $this->url .= '?'.$key.'='.$value;
+                $this->url .= '&'.$key.'='.$value;
         }
     }
+
+    /**
+     * Кол-во выбираемых строк (системное ограничение 500)
+     * @var
+     */
+    public $limit_rows;
+
+    /**
+     * Оффсет выборки (с какой строки выбирать) (Работает, только при условии, что limit_rows тоже указан)
+     * @var
+     */
+    public $limit_offset;
+
+    /**
+     * Выбрать элемент с заданным ID (Если указан этот параметр, все остальные игнорируются)
+     * (Можно передавать в виде массива состоящий из нескольких ID)
+     * @var
+     */
+    public $id;
 }

@@ -8,8 +8,16 @@
 
 interface IMethod {
 
+    /**
+     * Получение имени метода для запроса к API
+     * @return mixed
+     */
     public function getMethodName();
 
+    /**
+     * Код метода
+     * @return mixed
+     */
     public function run();
 
 } 

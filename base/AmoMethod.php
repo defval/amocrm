@@ -9,13 +9,27 @@
 class AmoMethod
 {
 
+    /**
+     * @var
+     */
     protected $url;
 
+    /**
+     * @var
+     */
     protected $domain;
 
+    /**
+     * @var string
+     */
     protected $type = 'json';
 
 
+    /**
+     * @param $params
+     * @throws CException
+     * @throws Exception
+     */
     public function __construct($params)
     {
         if (!is_array($params))
@@ -31,6 +45,7 @@ class AmoMethod
 
     /**
      * @param $params
+     * @throws Exception
      */
     public function setParams($params)
     {
@@ -47,8 +62,8 @@ class AmoMethod
     }
 
     /**
-     * Проверка ответа CURL
      * @param $code
+     * @throws Exception
      */
     public function CheckCurlResponse($code)
     {

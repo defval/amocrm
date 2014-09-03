@@ -6,24 +6,21 @@
  * @since 1.0
  */
 
-class AmoLeadsList extends AmoGetMethod implements IMethod {
+class AmoCompanyList extends AmoGetMethod implements IMethod {
 
     /**
-     * Получение имени метода для запроса к API
-     * @return mixed
+     * @return string
      */
     public function getMethodName() {
-        return '/private/api/v2/json/leads/list';
+        return '/private/api/v2/json/company/list';
     }
 
     /**
-     * Код метода
      * @return mixed
      */
     public function run() {
-        //print_r($this->url);
         $data = $this->get();
-        return $data['leads'];
+        return $data['contacts'];
     }
 
     /**
@@ -38,10 +35,4 @@ class AmoLeadsList extends AmoGetMethod implements IMethod {
      * @var
      */
     public $responsible_user_id;
-
-    /**
-     * Фильтр по ID статуса сделки (Как узнать список доступных ID см. здесь)
-     * @var
-     */
-    public $status;
-} 
+}
