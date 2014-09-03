@@ -14,7 +14,8 @@ class AmoLeadsList extends AmoGetMethod implements IMethod {
 
     public function run() {
         //print_r($this->url);
-        return $this->get();
+        $data = $this->get();
+        return $data['leads'];
     }
 
     /**
