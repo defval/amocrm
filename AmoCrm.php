@@ -15,6 +15,10 @@ require_once 'methods/AmoCompanyList.php';
 require_once 'methods/AmoTasksList.php';
 require_once 'methods/AmoNotesList.php';
 
+// links
+
+require_once 'methods/AmoContactsLinks.php';
+
 /**
  * Your comment
  *
