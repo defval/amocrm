@@ -8,6 +8,8 @@
 
 class AmoGetMethod extends AmoMethod {
 
+    public $ifModifiedSince;
+
     /**
      * @return mixed
      */
@@ -17,10 +19,17 @@ class AmoGetMethod extends AmoMethod {
         #Устанавливаем необходимые опции для сеанса cURL
 
         curl_setopt($curl, CURLOPT_URL, $this->url);
+
+        if($this->ifModifiedSince)
+            curl_setopt($curl,CURLOPT_HTTPHEADER,array('IF-MODIFIED-SINCE: '.$this->ifModifiedSince));
+
         $this->curlOptions($curl);
 
 
         $out = curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+
+
+
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE); #Получим HTTP-код ответа сервера
         curl_close($curl); #Заверашем сеанс cURL
 
@@ -41,14 +50,13 @@ class AmoGetMethod extends AmoMethod {
      */
     public function setUrl() {
         $params = get_object_vars($this);
-        if(isset($params['if-modified-since'])) {
-            header('if-modified-since:'.$params['if-modified-since']);
-            unset($params['if-modified-since']);
-        }
-        
+
         $this->url = 'https://'.$this->domain.'.amocrm.ru'.$this->getMethodName();
         $this->url .= '?type='.$this->type;
         foreach($params as $key=>$value) {
+
+            if($key === 'ifModifiedSince') continue;
+
             if($key !== 'domain' && $key !== 'type' && $key !== 'url' && isset($value) && !is_array($value) )
                 $this->url .= '&'.$key.'='.$value;
             elseif(is_array($value)) {
