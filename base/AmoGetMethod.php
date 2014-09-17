@@ -41,6 +41,11 @@ class AmoGetMethod extends AmoMethod {
      */
     public function setUrl() {
         $params = get_object_vars($this);
+        if(isset($params['if-modified-since'])) {
+            header('if-modified-since:'.$params['if-modified-since']);
+            unset($params['if-modified-since']);
+        }
+        
         $this->url = 'https://'.$this->domain.'.amocrm.ru'.$this->getMethodName();
         $this->url .= '?type='.$this->type;
         foreach($params as $key=>$value) {
