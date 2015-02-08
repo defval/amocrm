@@ -15,8 +15,10 @@ require_once 'methods/AmoCompanyList.php';
 require_once 'methods/AmoTasksList.php';
 require_once 'methods/AmoNotesList.php';
 
-// links
+// post methods
+require_once 'methods/AmoLeadsSet.php';
 
+// links
 require_once 'methods/AmoContactsLinks.php';
 
 /**
@@ -46,6 +48,7 @@ class AmoCrm
      */
     public function __construct($login, $hash, $domain)
     {
+
         $this->domain = $domain;
 
         $auth = $this->auth(array(
