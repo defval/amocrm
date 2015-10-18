@@ -17,6 +17,7 @@ require_once 'methods/AmoNotesList.php';
 
 // post methods
 require_once 'methods/AmoLeadsSet.php';
+require_once 'methods/AmoContactsSet.php';
 
 // links
 require_once 'methods/AmoContactsLinks.php';
