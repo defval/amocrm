@@ -29,8 +29,7 @@ class CustomField implements AmoEntityInterface
     {
         return [
             'id' => $this->id,
-            'values' => array_map(function ($value) {
-                /** @var Value $value */
+            'values' => array_map(function (Value $value) {
                 return $value->toAmoArray();
             }, $this->values)
         ];

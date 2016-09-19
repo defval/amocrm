@@ -30,8 +30,6 @@ $result = $amoCRMClient->exec(
     new Method\CurrentAccount($user, new ArrayResponseTransformer())
 );
 
-//var_dump($result);
-
 // contact set/update
 $contact = new Contact("Test name");
 $contact->setAmoCustomFields(
@@ -52,5 +50,3 @@ $contactSet->setContacts(
 );
 
 $result = $amoCRMClient->exec($contactSet);
-
-//var_dump($result);

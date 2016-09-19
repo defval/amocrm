@@ -124,8 +124,7 @@ class Contact implements AmoEntityInterface, AmoIdentity
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'custom_fields' => array_map(function ($customField) {
-                /* @var CustomField $customField */
+            'custom_fields' => array_map(function (CustomField $customField) {
                 return $customField->toAmoArray();
 
             }, $this->customFields)
