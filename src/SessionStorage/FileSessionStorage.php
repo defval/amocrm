@@ -9,6 +9,7 @@ use mb24dev\AmoCRM\User\UserInterface;
 
 /**
  * Class FileSessionStorage
+ *
  * @package mb24dev\AmoCRM\Session
  */
 class FileSessionStorage implements SessionStorageInterface
@@ -20,6 +21,7 @@ class FileSessionStorage implements SessionStorageInterface
 
     /**
      * FileSessionStorage constructor.
+     *
      * @param $sessionPath
      */
     public function __construct($sessionPath)

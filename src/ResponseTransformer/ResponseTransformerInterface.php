@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Interface DataMapper
+ *
  * @package mb24dev\AmoCRM
  */
 interface ResponseTransformerInterface

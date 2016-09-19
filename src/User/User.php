@@ -6,6 +6,7 @@ use mb24dev\AmoCRM\Session\Session;
 
 /**
  * Class AmoCRM
+ *
  * @package mb24dev\AmoCRM
  */
 class User implements UserInterface
@@ -32,6 +33,7 @@ class User implements UserInterface
 
     /**
      * AmoCRMUser constructor.
+     *
      * @param                         $domain
      * @param                         $login
      * @param                         $hash

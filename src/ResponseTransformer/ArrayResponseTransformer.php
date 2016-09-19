@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class ArrayJsonTransformer
+ *
  * @package mb24dev\AmoCRM\ResponseTransformer
  */
 class ArrayResponseTransformer implements ResponseTransformerInterface

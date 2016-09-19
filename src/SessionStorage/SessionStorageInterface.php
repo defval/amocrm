@@ -9,13 +9,14 @@ use mb24dev\AmoCRM\User\UserInterface;
 
 /**
  * Interface SessionStorageInterface
+ *
  * @package mb24dev\AmoCRM
  */
 interface SessionStorageInterface
 {
     /**
-     * @param Session $session
-     * @param UserInterface    $user
+     * @param Session       $session
+     * @param UserInterface $user
      * @throws SessionDoNotSavedException
      */
     public function save(Session $session, UserInterface $user);

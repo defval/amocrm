@@ -4,6 +4,7 @@ namespace mb24dev\AmoCRM\Session;
 
 /**
  * Class Session
+ *
  * @package mb24dev\AmoCRM
  */
 class Session implements SessionInterface
@@ -12,6 +13,7 @@ class Session implements SessionInterface
 
     /**
      * Session constructor.
+     *
      * @param $id
      */
     public function __construct($id)

@@ -6,6 +6,7 @@ use mb24dev\AmoCRM\Session\Session;
 
 /**
  * Interface UserInterface
+ *
  * @package mb24dev\AmoCRM
  */
 interface UserInterface

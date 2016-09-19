@@ -17,6 +17,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class AmoCRM
+ *
  * @package mb24dev\AmoCRM
  */
 class AmoCRMClient
@@ -43,6 +44,7 @@ class AmoCRMClient
 
     /**
      * AmoCRM constructor.
+     *
      * @param ClientInterface              $httpClient
      * @param SessionStorageInterface      $sessionStorage
      * @param ResponseTransformerInterface $responseTransformer

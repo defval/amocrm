@@ -7,6 +7,7 @@ use mb24dev\AmoCRM\User\UserInterface;
 
 /**
  * Class AmoCRMSessionDoesNotExistException
+ *
  * @package mb24dev\AmoCRM\Session
  */
 class SessionDoesNotExistException extends Exception
@@ -18,6 +19,7 @@ class SessionDoesNotExistException extends Exception
 
     /**
      * AmoCRMSessionDoesNotExistException constructor.
+     *
      * @param UserInterface $user
      */
     public function __construct(UserInterface $user)

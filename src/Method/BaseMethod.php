@@ -7,6 +7,7 @@ use mb24dev\AmoCRM\User\UserInterface;
 
 /**
  * Class BaseMethod
+ *
  * @package mb24dev\AmoCRM\Method
  */
 abstract class BaseMethod implements MethodInterface
@@ -22,6 +23,7 @@ abstract class BaseMethod implements MethodInterface
 
     /**
      * BaseMethod constructor.
+     *
      * @param UserInterface                $user
      * @param ResponseTransformerInterface $responseTransformer
      */

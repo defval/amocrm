@@ -7,6 +7,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * Class CurrentAccount
+ *
  * @package mb24dev\AmoCRM\Method
  */
 class CurrentAccount extends BaseMethod

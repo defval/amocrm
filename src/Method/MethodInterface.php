@@ -8,6 +8,7 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * Interface MethodInterface
+ *
  * @package mb24dev\AmoCRM\Method
  */
 interface MethodInterface
