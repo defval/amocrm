@@ -1,0 +1,32 @@
+{
+  "name": "mb24dev/amocrm",
+  "description": "AmoCRM support library",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Maxim Bovtunov",
+      "email": "mb24dev@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "mb24dev\\AmoCRM\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "mb24dev\\AmoCRM\\Examples\\": "examples/"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "guzzlehttp/psr7": "^1.3.1",
+    "psr/log": "^1.0",
+    "dflydev/fig-cookies": "^1.0"
+  },
+  "require-dev": {
+    "guzzlehttp/guzzle": "^6.2",
+    "phpunit/phpunit": "^5.5"
+  }
+}
