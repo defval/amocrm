@@ -26,5 +26,3 @@ $user = new User('https://new5603ee4a9f1a7.amocrm.ru/', 'mb24dev@gmail.com', '66
 $result = $amoCRMClient->exec(
     new CurrentAccount($user, new ArrayResponseTransformer())
 );
-
-var_dump($result);
