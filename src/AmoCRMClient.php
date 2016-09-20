@@ -5,8 +5,8 @@ namespace mb24dev\AmoCRM;
 use Dflydev\FigCookies\Cookie;
 use Dflydev\FigCookies\FigRequestCookies;
 use Dflydev\FigCookies\SetCookies;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
+use mb24dev\AmoCRM\HttpClient\HttpClientInterface;
 use mb24dev\AmoCRM\Method\MethodInterface;
 use mb24dev\AmoCRM\ResponseTransformer\ResponseTransformerInterface;
 use mb24dev\AmoCRM\Session\Session;
@@ -24,7 +24,7 @@ use Psr\Log\LoggerInterface;
 class AmoCRMClient
 {
     /**
-     * @var ClientInterface
+     * @var HttpClientInterface
      */
     private $httpClient;
 
@@ -46,13 +46,13 @@ class AmoCRMClient
     /**
      * AmoCRM constructor.
      *
-     * @param ClientInterface              $httpClient
+     * @param HttpClientInterface          $httpClient
      * @param SessionStorageInterface      $sessionStorage
      * @param ResponseTransformerInterface $responseTransformer
      * @param LoggerInterface              $logger
      */
     public function __construct(
-        ClientInterface $httpClient,
+        HttpClientInterface $httpClient,
         SessionStorageInterface $sessionStorage,
         ResponseTransformerInterface $responseTransformer,
         LoggerInterface $logger = null
@@ -64,7 +64,7 @@ class AmoCRMClient
     }
 
     /**
-     * @param ClientInterface $httpClient
+     * @param HttpClientInterface $httpClient
      */
     public function setHttpClient($httpClient)
     {

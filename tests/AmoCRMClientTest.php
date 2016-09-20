@@ -1,8 +1,8 @@
 <?php
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use mb24dev\AmoCRM\AmoCRMException;
+use mb24dev\AmoCRM\HttpClient\HttpClientInterface;
 use mb24dev\AmoCRM\Method\MethodInterface;
 use mb24dev\AmoCRM\ResponseTransformer\ResponseTransformerInterface;
 use mb24dev\AmoCRM\Session\Session;
@@ -23,7 +23,7 @@ class AmoCRMClientTest extends PHPUnit_Framework_TestCase
     const USER_HASH = 'hash';
 
     /**
-     * @var  ClientInterface|PHPUnit_Framework_MockObject_MockObject
+     * @var  HttpClientInterface|PHPUnit_Framework_MockObject_MockObject
      */
     private $client;
 
@@ -55,7 +55,7 @@ class AmoCRMClientTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->user = new User(self::USER_DOMAIN, self::USER_LOGIN, self::USER_HASH);
-        $this->client = $this->getMockForAbstractClass(ClientInterface::class);
+        $this->client = $this->getMockForAbstractClass(HttpClientInterface::class);
         $this->client->method('send')->willReturn(
             new Response(200, ['Set-Cookie' => 'session_id=' . self::SESSION_ID])
         );

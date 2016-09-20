@@ -7,6 +7,15 @@ AmoCrm
 [![License](https://poser.pugx.org/mb24dev/amocrm/license)](https://packagist.org/packages/mb24dev/amocrm)
 
 
-[AmoCrm] support library v2 
+Библиотека для интеграции с [AmoCrm]
+
+## Фичи
+
+- PSR7 Request/Response
+- Любая реализация HttpClient
+- Возможность интегрировать свои сущности в либу посредством реализации интерфейса
+- Любое хранилище сессий AmoCRM
+- Запросы ко всем доменам из одного клиента
+- Возможность трансформировать ответ метода в кастомный объект
 
 [AmoCrm]:https://www.amocrm.ru/
