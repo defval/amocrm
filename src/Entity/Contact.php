@@ -133,10 +133,10 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
     }
 
     /**
-     * @param mixed $linkedLeadsID
+     * @param array $linkedLeadsID
      * @return $this
      */
-    public function setAmoLinkedLeadsID($linkedLeadsID)
+    public function setAmoLinkedLeadsID(array $linkedLeadsID)
     {
         $this->linkedLeadsID = $linkedLeadsID;
 
