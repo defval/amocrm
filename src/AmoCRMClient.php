@@ -52,7 +52,7 @@ class AmoCRMClient
      * @param LoggerInterface              $logger
      */
     public function __construct(
-        HttpClientInterface $httpClient,
+        $httpClient,
         SessionStorageInterface $sessionStorage,
         ResponseTransformerInterface $responseTransformer,
         LoggerInterface $logger = null
