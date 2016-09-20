@@ -4,9 +4,10 @@ namespace mb24dev\AmoCRM\Entity;
 
 /**
  * Interface AmoIdentity
+ *
  * @package mb24dev\AmoCRM\Entity
  */
-interface AmoIdentity
+interface AmoIdentityInterface
 {
     /**
      * @return mixed

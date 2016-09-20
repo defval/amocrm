@@ -45,18 +45,17 @@ class AmoCRMClient
     /**
      * AmoCRM constructor.
      *
-     * @param ClientInterface $httpClient
-     * @param SessionStorageInterface $sessionStorage
+     * @param ClientInterface              $httpClient
+     * @param SessionStorageInterface      $sessionStorage
      * @param ResponseTransformerInterface $responseTransformer
-     * @param LoggerInterface $logger
+     * @param LoggerInterface              $logger
      */
     public function __construct(
         ClientInterface $httpClient,
         SessionStorageInterface $sessionStorage,
         ResponseTransformerInterface $responseTransformer,
         LoggerInterface $logger = null
-    )
-    {
+    ) {
         $this->httpClient = $httpClient;
         $this->responseTransformer = $responseTransformer;
         $this->sessionStorage = $sessionStorage;
@@ -119,7 +118,7 @@ class AmoCRMClient
             return $this->exec($method);
         } catch (\Exception $e) {
             if ($this->logger) {
-                $this->logger->critical('Client error', ['exception' => $e]);
+                $this->logger->critical($e->getMessage(), ['exception' => $e]);
             }
 
             throw new Exception($e->getMessage());

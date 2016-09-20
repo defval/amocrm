@@ -3,24 +3,26 @@
 namespace mb24dev\AmoCRM\Method;
 
 use GuzzleHttp\Psr7\Request;
-use mb24dev\AmoCRM\Entity\Contact;
+use mb24dev\AmoCRM\Entity\AmoEntityInterface;
+use mb24dev\AmoCRM\Entity\AmoIdentityInterface;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * Class ContactSet
+ *
  * @package mb24dev\AmoCRM\Method
  */
 class ContactSet extends BaseMethod
 {
     /**
-     * @var Contact[]
+     * @var AmoEntityInterface[]
      */
-    private $addContacts;
+    private $addContacts = [];
 
     /**
-     * @var Contact[]
+     * @var AmoEntityInterface[]
      */
-    private $updateContacts;
+    private $updateContacts = [];
 
     /**
      * @return RequestInterface
@@ -28,29 +30,36 @@ class ContactSet extends BaseMethod
     public function buildRequest()
     {
         $addContacts = [];
+        $updateContacts = [];
 
         foreach ($this->addContacts as $addContact) {
             $addContacts[] = $addContact->toAmoArray();
+        }
+
+        foreach ($this->updateContacts as $updateContact) {
+            $updateContacts[] = $updateContact->toAmoArray();
         }
 
         $body = json_encode(
             [
                 'request' => [
                     'contacts' => [
-                        'add' => $addContacts
-                    ]
-                ]
+                        'add' => $addContacts,
+                        'update' => $updateContacts,
+                    ],
+                ],
             ]
         );
 
-
-        $request = new Request('POST', $this->getUser()->getAmoCRMDomain() . 'private/api/v2/json/contacts/set', [], $body);
+        $request = new Request(
+            'POST', $this->getUser()->getAmoCRMDomain() . 'private/api/v2/json/contacts/set', [], $body
+        );
 
         return $request;
     }
 
     /**
-     * @return \mb24dev\AmoCRM\Entity\Contact[]
+     * @return AmoEntityInterface[]
      */
     public function getContacts()
     {
@@ -58,7 +67,7 @@ class ContactSet extends BaseMethod
     }
 
     /**
-     * @param \mb24dev\AmoCRM\Entity\Contact[] $contacts
+     * @param AmoIdentityInterface[] $contacts
      * @return $this
      */
     public function setContacts($contacts)
@@ -77,6 +86,5 @@ class ContactSet extends BaseMethod
 
         return $this;
     }
-
 
 }
