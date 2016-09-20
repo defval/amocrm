@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Request;
 use mb24dev\AmoCRM\Method\MethodInterface;
 use mb24dev\AmoCRM\ResponseTransformer\ResponseTransformerInterface;
 use mb24dev\AmoCRM\Session\Session;
+use mb24dev\AmoCRM\Session\SessionCookieDoNotPresented;
 use mb24dev\AmoCRM\Session\SessionDoesNotExistException;
 use mb24dev\AmoCRM\SessionStorage\SessionStorageInterface;
 use mb24dev\AmoCRM\User\UserInterface;
@@ -97,7 +98,7 @@ class AmoCRMClient
     /**
      * @param MethodInterface $method
      * @return mixed
-     * @throws Exception
+     * @throws AmoCRMException
      */
     public function exec(MethodInterface $method)
     {
@@ -118,10 +119,10 @@ class AmoCRMClient
             return $this->exec($method);
         } catch (\Exception $e) {
             if ($this->logger) {
-                $this->logger->critical($e->getMessage(), ['exception' => $e]);
+                $this->logger->critical('Client error', ['exception' => $e]);
             }
 
-            throw new Exception($e->getMessage());
+            throw new AmoCRMException($e->getMessage());
         }
 
         $methodResponseTransformer = $method->getResponseTransformer();
@@ -137,7 +138,7 @@ class AmoCRMClient
 
     /**
      * @param UserInterface $user
-     * @throws Exception
+     * @throws AmoCRMException
      */
     private function auth(UserInterface $user)
     {
@@ -159,7 +160,7 @@ class AmoCRMClient
             $user->setAmoCRMSession($session);
             $this->sessionStorage->save($session, $user);
         } else {
-            throw new Exception("Session save problem");
+            throw new SessionCookieDoNotPresented();
         }
     }
 }

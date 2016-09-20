@@ -2,7 +2,7 @@
 
 namespace mb24dev\AmoCRM\Session;
 
-use mb24dev\AmoCRM\Exception;
+use mb24dev\AmoCRM\AmoCRMException;
 use mb24dev\AmoCRM\User\UserInterface;
 
 /**
@@ -10,7 +10,7 @@ use mb24dev\AmoCRM\User\UserInterface;
  *
  * @package mb24dev\AmoCRM\Session
  */
-class SessionDoesNotExistException extends Exception
+class SessionDoesNotExistException extends AmoCRMException
 {
     /**
      * @var UserInterface

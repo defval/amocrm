@@ -7,7 +7,7 @@ namespace mb24dev\AmoCRM;
  *
  * @package mb24dev\AmoCRM
  */
-class Exception extends \Exception
+class AmoCRMException extends \Exception
 {
 
 }

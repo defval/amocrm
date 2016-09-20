@@ -5,11 +5,11 @@ namespace mb24dev\AmoCRM\Session;
 use mb24dev\AmoCRM\AmoCRMException;
 
 /**
- * Class AmoCRMSessionDoNotSavedException
+ * Class SessionCookieDoNotPresented
  *
  * @package mb24dev\AmoCRM\Session
  */
-class SessionDoNotSavedException extends AmoCRMException
+class SessionCookieDoNotPresented extends AmoCRMException
 {
 
 }

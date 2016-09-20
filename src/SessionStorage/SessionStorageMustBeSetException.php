@@ -2,14 +2,14 @@
 
 namespace mb24dev\AmoCRM\SessionStorage;
 
-use mb24dev\AmoCRM\Exception;
+use mb24dev\AmoCRM\AmoCRMException;
 
 /**
  * Class SessionStorageMustBeSetException
  *
  * @package mb24dev\AmoCRM\Session
  */
-class SessionStorageMustBeSetException extends Exception
+class SessionStorageMustBeSetException extends AmoCRMException
 {
 
 }
