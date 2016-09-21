@@ -3,19 +3,18 @@
 namespace mb24dev\AmoCRM\Entity;
 
 /**
- * Class Contact
+ * Class Company
  *
  * @package mb24dev\AmoCRM\Entity
  */
-class Contact implements AmoEntityInterface, AmoIdentityInterface
+class Company implements AmoEntityInterface, AmoIdentityInterface
 {
     private $id;
     private $name;
     private $requestID;
     private $responsibleUserID;
-    private $linkedLeadsID;
-    private $companyName;
-    private $tags;
+    private $linkedLeadsID = [];
+    private $tags = [];
 
     /**
      * @var \DateTime
@@ -33,7 +32,7 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
     private $customFields = [];
 
     /**
-     * Contact constructor.
+     * Company constructor.
      *
      * @param $name
      */
@@ -46,7 +45,7 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
      * @param mixed $id
      * @return $this
      */
-    public function setAmoID($id)
+    public function setAmoId($id)
     {
         $this->id = $id;
 
@@ -54,11 +53,14 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
     }
 
     /**
-     * @return mixed
+     * @param mixed $name
+     * @return $this
      */
-    public function getAmoID()
+    public function setAmoName($name)
     {
-        return $this->id;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -68,28 +70,6 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
     public function setAmoRequestID($requestID)
     {
         $this->requestID = $requestID;
-
-        return $this;
-    }
-
-    /**
-     * @param \DateTime $dateCreate
-     * @return $this
-     */
-    public function setAmoDateCreate(\DateTime $dateCreate)
-    {
-        $this->dateCreate = $dateCreate;
-
-        return $this;
-    }
-
-    /**
-     * @param \DateTime $lastModified
-     * @return $this
-     */
-    public function setAmoLastModified(\DateTime $lastModified)
-    {
-        $this->lastModified = $lastModified;
 
         return $this;
     }
@@ -109,7 +89,7 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
      * @param array $linkedLeadsID
      * @return $this
      */
-    public function setAmoLinkedLeadsID(array $linkedLeadsID)
+    public function setAmoLinkedLeadsID($linkedLeadsID)
     {
         $this->linkedLeadsID = $linkedLeadsID;
 
@@ -117,38 +97,45 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
     }
 
     /**
-     * @param mixed $companyName
-     * @return $this
-     */
-    public function setAmoCompanyName($companyName)
-    {
-        $this->companyName = $companyName;
-
-        return $this;
-    }
-
-    /**
-     * @param CustomField[] $customFields
-     * @return $this
-     */
-    public function setAmoCustomFields($customFields)
-    {
-        if (!is_array($customFields)) {
-            $customFields = [$customFields];
-        }
-
-        $this->customFields = $customFields;
-
-        return $this;
-    }
-
-    /**
-     * @param string $tags
+     * @param array $tags
      * @return $this
      */
     public function setAmoTags($tags)
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * @param \DateTime $dateCreate
+     * @return $this
+     */
+    public function setAmoDateCreate($dateCreate)
+    {
+        $this->dateCreate = $dateCreate;
+
+        return $this;
+    }
+
+    /**
+     * @param \DateTime $lastModified
+     * @return $this
+     */
+    public function setAmoLastModified($lastModified)
+    {
+        $this->lastModified = $lastModified;
+
+        return $this;
+    }
+
+    /**
+     * @param AmoEntityInterface[] $customFields
+     * @return $this
+     */
+    public function setAmoCustomFields($customFields)
+    {
+        $this->customFields = $customFields;
 
         return $this;
     }
@@ -166,7 +153,6 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
             'request_id' => $this->requestID,
             'responsible_user_id' => $this->responsibleUserID,
             'linked_leads_id' => $this->linkedLeadsID,
-            'company_name' => $this->companyName,
             'custom_fields' => array_map(
                 function (AmoEntityInterface $customField) {
                     return $customField->toAmoArray();
@@ -175,6 +161,14 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
             ),
             'tags' => $this->tags,
         ];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAmoID()
+    {
+        return $this->id;
     }
 
 }

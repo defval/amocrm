@@ -44,87 +44,134 @@ class Lead implements AmoEntityInterface, AmoIdentityInterface
 
     /**
      * @param mixed $id
+     * @return $this
      */
     public function setAmoId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
+
     /**
      * @param mixed $name
+     * @return $this
      */
     public function setAmoName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
+
     /**
      * @param \DateTime $dateCreate
+     * @return $this
      */
     public function setAmoDateCreate(\DateTime $dateCreate)
     {
         $this->dateCreate = $dateCreate;
+
+        return $this;
     }
+
     /**
      * @param \DateTime $last_modified
+     * @return $this
      */
     public function setAmoLastModified(\DateTime $last_modified)
     {
         $this->last_modified = $last_modified;
+
+        return $this;
     }
+
     /**
      * @param mixed $statusID
+     * @return $this
      */
     public function setAmoStatusID($statusID)
     {
         $this->statusID = $statusID;
+
+        return $this;
     }
+
     /**
      * @param mixed $pipelineID
+     * @return $this
      */
     public function setAmoPipelineID($pipelineID)
     {
         $this->pipelineID = $pipelineID;
+
+        return $this;
     }
+
     /**
      * @param mixed $price
+     * @return $this
      */
     public function setAmoPrice($price)
     {
         $this->price = $price;
+
+        return $this;
     }
+
     /**
      * @param mixed $responsibleUserID
+     * @return $this
      */
     public function setAmoResponsibleUserID($responsibleUserID)
     {
         $this->responsibleUserID = $responsibleUserID;
+
+        return $this;
     }
+
     /**
      * @param mixed $requestID
+     * @return $this
      */
     public function setAmoRequestID($requestID)
     {
         $this->requestID = $requestID;
+
+        return $this;
     }
+
     /**
      * @param mixed $customFields
+     * @return $this
      */
     public function setAmoCustomFields($customFields)
     {
         $this->customFields = $customFields;
+
+        return $this;
     }
+
     /**
      * @param mixed $tags
+     * @return $this
      */
     public function setAmoTags($tags)
     {
         $this->tags = $tags;
+
+        return $this;
     }
+
     /**
      * @param mixed $visitorUID
+     * @return $this
      */
     public function setAmoVisitorUID($visitorUID)
     {
         $this->visitorUID = $visitorUID;
+
+        return $this;
     }
 
     /**

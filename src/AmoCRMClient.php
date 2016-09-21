@@ -47,10 +47,10 @@ class AmoCRMClient
     /**
      * AmoCRM constructor.
      *
-     * @param HttpClientInterface|ClientInterface          $httpClient
-     * @param SessionStorageInterface      $sessionStorage
-     * @param ResponseTransformerInterface $responseTransformer
-     * @param LoggerInterface              $logger
+     * @param HttpClientInterface|ClientInterface $httpClient
+     * @param SessionStorageInterface             $sessionStorage
+     * @param ResponseTransformerInterface        $responseTransformer
+     * @param LoggerInterface                     $logger
      */
     public function __construct(
         $httpClient,
