@@ -2,8 +2,8 @@
 
 use GuzzleHttp\Client;
 use mb24dev\AmoCRM\AmoCRMClient;
-use mb24dev\AmoCRM\Entity\Contact;
 use mb24dev\AmoCRM\Entity\CustomField;
+use mb24dev\AmoCRM\Entity\Lead;
 use mb24dev\AmoCRM\Entity\Value;
 use mb24dev\AmoCRM\Method;
 use mb24dev\AmoCRM\ResponseTransformer\StdObjectResponseTransformer;
@@ -24,8 +24,8 @@ $amoCRMClient = new AmoCRMClient($client, $fileStorage, new StdObjectResponseTra
 $user = new User('https://mb24dev.amocrm.ru/', 'mb24dev@gmail.com', '66c7fd7f53d583c6096053e1bc1fba38');
 
 // contact set/update
-$contact = new Contact("Test name");
-$contact->setAmoCustomFields(
+$lead = new Lead('test', 1);
+$lead->setAmoCustomFields(
     [
         new CustomField(
             '1027582', [
@@ -36,17 +36,16 @@ $contact->setAmoCustomFields(
     ]
 );
 
-$contact->setAmoCompanyName('CompanyName')->setAmoDateCreate(new DateTime())->setAmoRequestID(1)->setAmoTags('test');
+$lead->setAmoTags('test');
 
-$contactSet = new Method\ContactsSet($user);
+$leadSet = new Method\LeadsSet($user);
 
-$contactSet->setContacts(
+$leadSet->setLeads(
     [
-        $contact,
-        new Contact("Test name 2"),
+        $lead,
     ]
 );
 
-$result = $amoCRMClient->exec($contactSet);
+$result = $amoCRMClient->exec($leadSet);
 
-echo 'ContactSet result: ' . print_r($result, true);
+echo 'LeadSet result: ' . print_r($result, true);

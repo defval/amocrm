@@ -5,6 +5,7 @@ namespace mb24dev\AmoCRM;
 use Dflydev\FigCookies\Cookie;
 use Dflydev\FigCookies\FigRequestCookies;
 use Dflydev\FigCookies\SetCookies;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
 use mb24dev\AmoCRM\HttpClient\HttpClientInterface;
 use mb24dev\AmoCRM\Method\MethodInterface;
@@ -46,7 +47,7 @@ class AmoCRMClient
     /**
      * AmoCRM constructor.
      *
-     * @param HttpClientInterface          $httpClient
+     * @param HttpClientInterface|ClientInterface          $httpClient
      * @param SessionStorageInterface      $sessionStorage
      * @param ResponseTransformerInterface $responseTransformer
      * @param LoggerInterface              $logger

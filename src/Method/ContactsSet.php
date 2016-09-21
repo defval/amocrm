@@ -12,40 +12,40 @@ use Psr\Http\Message\RequestInterface;
  *
  * @package mb24dev\AmoCRM\Method
  */
-class ContactSet extends BaseMethod
+class ContactsSet extends BaseMethod
 {
     /**
      * @var AmoEntityInterface[]
      */
-    private $addContacts = [];
+    private $addEntities = [];
 
     /**
      * @var AmoEntityInterface[]
      */
-    private $updateContacts = [];
+    private $updateEntities = [];
 
     /**
      * @return RequestInterface
      */
     public function buildRequest()
     {
-        $addContacts = [];
-        $updateContacts = [];
+        $addEntities = [];
+        $updateEntities = [];
 
-        foreach ($this->addContacts as $addContact) {
-            $addContacts[] = $addContact->toAmoArray();
+        foreach ($this->addEntities as $entity) {
+            $addEntities[] = $entity->toAmoArray();
         }
 
-        foreach ($this->updateContacts as $updateContact) {
-            $updateContacts[] = $updateContact->toAmoArray();
+        foreach ($this->updateEntities as $entity) {
+            $updateEntities[] = $entity->toAmoArray();
         }
 
         $body = json_encode(
             [
                 'request' => [
                     'contacts' => [
-                        'add' => $addContacts,
-                        'update' => $updateContacts,
+                        'add' => $addEntities,
+                        'update' => $updateEntities,
                     ],
                 ],
             ]
@@ -63,24 +63,24 @@ class ContactSet extends BaseMethod
      */
     public function getContacts()
     {
-        return array_merge($this->addContacts, $this->updateContacts);
+        return array_merge($this->addEntities, $this->updateEntities);
     }
 
     /**
-     * @param AmoIdentityInterface[] $contacts
+     * @param AmoIdentityInterface[] $entities
      * @return $this
      */
-    public function setContacts($contacts)
+    public function setContacts($entities)
     {
-        if (!is_array($contacts)) {
-            $contacts = [$contacts];
+        if (!is_array($entities)) {
+            $entities = [$entities];
         }
 
-        foreach ($contacts as $contact) {
-            if ($contact->getAmoID()) {
-                $this->updateContacts[] = $contact;
+        foreach ($entities as $entity) {
+            if ($entity->getAmoID()) {
+                $this->updateEntities[] = $entity;
             } else {
-                $this->addContacts[] = $contact;
+                $this->addEntities[] = $entity;
             }
         }
 

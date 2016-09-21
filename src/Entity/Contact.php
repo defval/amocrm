@@ -190,6 +190,7 @@ class Contact implements AmoEntityInterface, AmoIdentityInterface
             'name' => $this->name,
             'date_create' => $this->dateCreate ? $this->dateCreate->getTimestamp() : null,
             'last_modified' => $this->dateCreate ? $this->dateCreate->getTimestamp() : null,
+            'request_id' => $this->requestID,
             'responsible_user_id' => $this->responsibleUserID,
             'linked_leads_id' => $this->linkedLeadsID,
             'company_name' => $this->companyName,
