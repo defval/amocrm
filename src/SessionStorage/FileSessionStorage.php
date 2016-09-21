@@ -55,7 +55,13 @@ class FileSessionStorage implements SessionStorageInterface
     {
         $filename = $this->sessionPath . $user->getAmoCRMLogin();
         if (file_exists($filename)) {
-            if ($data = file_get_contents($filename)) {
+            $fileUpdatedDate = new \DateTime(date("F d Y H:i:s.", filemtime($filename)));
+            $currentDate = new \DateTime();
+            $diff = $currentDate->diff($fileUpdatedDate);
+            $diffMinutes = $diff->d * 24 * 60;
+            $diffMinutes += $diff->h * 60;
+
+            if ($diffMinutes < 15 && $data = file_get_contents($filename)) {
                 return new Session($data);
             }
         }
