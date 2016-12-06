@@ -28,7 +28,7 @@ class Lead implements AmoEntityInterface, AmoIdentityInterface
     /**
      * @var \DateTime
      */
-    private $last_modified;
+    private $lastModified;
 
     /**
      * Lead constructor.
@@ -76,12 +76,12 @@ class Lead implements AmoEntityInterface, AmoIdentityInterface
     }
 
     /**
-     * @param \DateTime $last_modified
+     * @param \DateTime $lastModified
      * @return $this
      */
-    public function setAmoLastModified(\DateTime $last_modified)
+    public function setAmoLastModified(\DateTime $lastModified)
     {
-        $this->last_modified = $last_modified;
+        $this->lastModified = $lastModified;
 
         return $this;
     }
@@ -183,7 +183,7 @@ class Lead implements AmoEntityInterface, AmoIdentityInterface
             'id' => $this->id,
             'name' => $this->name,
             'date_create' => $this->dateCreate ? $this->dateCreate->getTimestamp() : null,
-            'last_modified' => $this->dateCreate ? $this->dateCreate->getTimestamp() : null,
+            'last_modified' => $this->lastModified ? $this->lastModified->getTimestamp() : null,
             'status_id' => $this->statusID,
             'pipeline_id' => $this->pipelineID,
             'price' => $this->price,
