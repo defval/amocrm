@@ -17,6 +17,7 @@ class StdObjectResponseTransformer implements ResponseTransformerInterface
      */
     public function transform(ResponseInterface $response)
     {
+        $response->getBody()->rewind();
         return json_decode($response->getBody()->getContents());
     }
 
